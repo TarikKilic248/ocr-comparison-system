@@ -52,14 +52,21 @@ Bu proje, PDF dosyalarından metin çıkarma (OCR) işleminde farklı teknolojil
 ```
 
 ### Model Mimarisi (Custom OCR)
+
+🎯 Neden Compact (Küçük) CNN?
+Veri Seti Kısıtlamaları
+
+Sınırlı Eğitim Verisi: Küçük veri setlerinde büyük modeller overfitting yapar
+Hesaplama Kaynakları: Daha az GPU belleği ve işlem gücü gereksinimi
+
 ```
 Input Image (224x224x3)
         │
-    CNN Backbone
-    ├─ Conv2D(32) + BN + ReLU + MaxPool
-    ├─ Conv2D(64) + BN + ReLU + MaxPool
-    ├─ Conv2D(128) + BN + ReLU + MaxPool
-    └─ Conv2D(256) + BN + ReLU + AdaptiveAvgPool
+    CNN Layers:
+      ├── Conv2d(3→32) + BatchNorm + ReLU + MaxPool + Dropout(0.1)
+      ├── Conv2d(32→64) + BatchNorm + ReLU + MaxPool + Dropout(0.2)  
+      ├── Conv2d(64→128) + BatchNorm + ReLU + MaxPool + Dropout(0.3)
+      └── Conv2d(128→256) + BatchNorm + ReLU + AdaptiveAvgPool(1,1)
         │
   Feature Vector (256)
         │
@@ -73,6 +80,13 @@ Input Image (224x224x3)
         │
     Text Output
 ```
+
+Overfitting Önleme Stratejileri
+
+1. Progressive Dropout: 0.1 → 0.2 → 0.3 → 0.5
+2.Batch Normalization: Her konvolüsyon katmanında
+3. Weight Decay: L2 regularization (1e-3)
+4. Data Augmentation: 3x veri artırımı
 
 ### Veri İşleme Pipeline
 ```
