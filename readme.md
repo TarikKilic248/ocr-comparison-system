@@ -1,4 +1,7 @@
 # 📄 OCR Karşılaştırmalı Analiz Sistemi
+
+![Uygulama](20250612210905.gif)
+
 ## Detaylı Proje Dokümantasyonu
 
 ### 📋 İçindekiler
