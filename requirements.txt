@@ -1,0 +1,44 @@
+# Streamlit ve web framework
+streamlit
+plotly
+
+# PDF ve görüntü işleme
+pdf2image
+Pillow
+opencv-python
+
+# OCR kütüphaneleri
+pytesseract
+easyocr
+
+# Veri işleme
+pandas
+numpy
+
+# Makine öğrenmesi
+torch
+torchvision
+torchaudio
+scikit-learn
+
+# Görselleştirme
+matplotlib
+seaborn
+
+# Yardımcı kütüphaneler
+tqdm
+
+# Opsiyonel: Transformers (gelişmiş modeller için)
+# transformers>=4.30.0
+# datasets>=2.14.0
+
+# Opsiyonel: TensorFlow (alternatif framework)
+# tensorflow>=2.13.0
+
+# Geliştirme ve debugging
+# jupyter>=1.0.0
+# ipykernel>=6.25.0
+
+# Not: Windows kullanıcıları için
+# Poppler: https://github.com/oschwartz10612/poppler-windows/releases/
+# Tesseract: https://github.com/UB-Mannheim/tesseract/wiki
